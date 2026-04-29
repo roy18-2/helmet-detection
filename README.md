@@ -1,136 +1,178 @@
-
 # 🪖 Helmet Detection System using CNN
 
 ## 📌 Overview
 
-This project focuses on building an automated **Helmet Detection System** using **Convolutional Neural Networks (CNNs)**. The goal is to identify whether a person is wearing a helmet or not, which helps improve road safety enforcement through automation.
+Road safety is a major global concern, with many accidents leading to severe head injuries due to the non-use of helmets. Manual monitoring of helmet compliance is inefficient, especially in high-traffic areas.
 
-Manual monitoring of helmet compliance is inefficient in high-traffic areas. This system leverages deep learning to detect helmets in images and can be extended to real-time surveillance applications.
+This project presents an automated **Helmet Detection System** using a **Convolutional Neural Network (CNN)** to classify whether a person is wearing a helmet or not from images.
 
 ---
 
-## 🚀 Features
+## 🎯 Problem Statement
 
-* Detects helmets in images
-* Classifies objects as:
+To develop an automated system that detects helmet usage from images, reducing the need for manual monitoring and improving road safety enforcement.
 
-  * With Helmet
-  * Without Helmet
-* Uses deep learning (CNN-based object detection)
-* Provides performance evaluation metrics
-* Scalable for real-time applications
+---
+
+## 💡 Proposed Solution
+
+A deep learning-based image classification model is trained using a CNN architecture to distinguish between:
+
+* ✅ Helmet
+* ❌ No Helmet
+
+The system processes input images, performs preprocessing, and predicts helmet compliance.
+
+---
+
+## 🛠️ Tech Stack
+
+* **Programming Language:** Python
+* **Frameworks/Libraries:** TensorFlow, OpenCV, NumPy, Matplotlib
+* **Platform:** Jupyter Notebook / Local Machine
 
 ---
 
 ## 📂 Dataset
 
-The dataset used for this project is sourced from Kaggle:
+This project uses the Helmet Detection dataset available on Kaggle:
 
-🔗 https://www.kaggle.com/datasets/andrewmvd/helmet-detection
+👉 https://www.kaggle.com/datasets/andrewmvd/helmet-detection
 
-### Dataset Details:
+Download the dataset and organize it as follows:
 
-* Contains annotated images of people with and without helmets
-* Includes bounding box labels for object detection
-* Suitable for training CNN-based detection models
-
----
-
-## 🛠️ Technologies Used
-
-* **Programming Language:** Python
-* **Libraries & Frameworks:**
-
-  * TensorFlow / PyTorch
-  * OpenCV
-  * NumPy
-  * Matplotlib
-* **Platform:** Jupyter Notebook / Google Colab
+```
+data/
+ ├── train/
+ │   ├── helmet/
+ │   └── no_helmet/
+ │
+ └── val/
+     ├── helmet/
+     └── no_helmet/
+```
 
 ---
 
 ## 🧠 Model Architecture
 
-* Convolutional Neural Network (CNN)
-* Layers include:
+The CNN model consists of:
 
-  * Convolutional Layers
-  * Pooling Layers
-  * Fully Connected Layers
-* Can be extended to object detection models like:
-
-  * SSD (Single Shot Detector)
-  * YOLO (You Only Look Once)
+* Convolutional layers for feature extraction
+* MaxPooling layers for dimensionality reduction
+* Fully connected (Dense) layers for classification
+* Softmax activation for final prediction
 
 ---
 
-## ⚙️ Workflow
+## 📊 Results
 
-1. Data Collection (Kaggle dataset)
-2. Data Preprocessing
-
-   * Image resizing
-   * Annotation parsing
-3. Model Training
-4. Model Evaluation
-5. Prediction & Output Visualization
-
----
-
-## 📊 Performance Evaluation Metrics
+The model is evaluated using:
 
 * Accuracy
-* Precision
-* Recall
-* F1-Score
-* Intersection over Union (IoU)
+* Loss
+* (Optional) Confusion Matrix
+
+Sample outputs are available in the `/results` folder.
 
 ---
 
-## 📸 Output
+## 🚀 How to Run the Project
 
-* Detects helmets in input images
-* Draws bounding boxes around detected objects
-* Labels objects as "Helmet" or "No Helmet"
+### 1. Clone the Repository
+
+```
+git clone https://github.com/your-username/helmet-detection.git
+cd helmet-detection
+```
+
+### 2. Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
+### 3. Download Dataset
+
+Download from:
+https://www.kaggle.com/datasets/andrewmvd/helmet-detection
+
+Place it inside the `data/` directory as shown above.
 
 ---
 
-## ▶️ How to Run
+### 4. Train the Model
 
-1. Clone the repository
-2. Install required libraries:
+```
+python train.py
+```
 
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Download dataset from Kaggle and place it in the project folder
-4. Run the Jupyter Notebook:
+This will generate:
 
-   ```bash
-   jupyter notebook
-   ```
-5. Execute all cells
+```
+models/helmet_model.h5
+```
+
+---
+
+### 5. Run Prediction
+
+Place a test image in the root directory and run:
+
+```
+python predict.py
+```
+
+Output:
+
+* `Helmet ✅`
+* `No Helmet ❌`
+
+---
+
+## 📁 Project Structure
+
+```
+helmet-detection/
+│
+├── train.py
+├── predict.py
+├── requirements.txt
+├── README.md
+│
+├── data/
+├── models/
+├── results/
+```
+
+---
+
+## ⚠️ Notes
+
+* Ensure dataset folder names match exactly (`helmet`, `no_helmet`)
+* Input image size must be **224x224**
+* If class labels are reversed, update prediction logic accordingly
 
 ---
 
 ## 🔮 Future Improvements
 
-* Real-time detection using CCTV/video streams
-* Integration with traffic monitoring systems
-* Improve accuracy using advanced models like YOLOv8
-* Deploy as a web or mobile application
-
----
-
-## 📄 Conclusion
-
-This project demonstrates how deep learning can be applied to enhance road safety by automating helmet detection. It reduces manual effort and increases enforcement efficiency.
+* Real-time helmet detection using video streams
+* Integration with CCTV systems
+* Object detection models (e.g., YOLO) for better accuracy
+* Deployment as a web or mobile application
 
 ---
 
 ## 👤 Author
 
-* Riya
-* Tanishqa
+Developed as part of a mini project on CNN-based object detection.
+
+---
+
+## ⭐ Acknowledgements
+
+* Kaggle dataset contributors
+* TensorFlow and OpenCV communities
 
 ---
